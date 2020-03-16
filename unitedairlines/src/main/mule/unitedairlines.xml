@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+
+	<flow name="unitedairlinesFlow" doc:id="59d60d2f-091c-464e-bcf6-b009291928cf" >
+		<http:listener doc:name="Listener" doc:id="821395b0-9fe5-43e7-b3e6-b0d26abeed1d" config-ref="HTTP_Listener_config" path="/getUnitedFlights/{dest}"/>
+		<logger level="INFO" doc:name="Logger" doc:id="b483c9c2-6e56-4fa1-8e64-bb037734aa12" message="got the request, processing"/>
+		<flow-ref doc:name="subFlow" doc:id="58409baa-b116-40fc-a118-ef678295a101" name="subFlow"/>
+		<flow-ref doc:name="privateFlow" doc:id="703b3918-d8a6-4516-8646-2de29f298d22" name="privateFlow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="fa8e9f22-6d5d-419c-b929-cec38525310b" message="#[vars.var_method]"/>
+	</flow>
+</mule>

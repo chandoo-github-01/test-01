@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="listAllFlightsFlow" doc:id="df068731-8d7f-42a5-ae64-ae819080013a" >
+		<http:listener doc:name="Listener" doc:id="67b92e93-5ac8-4b4d-8762-7e1726672fd1" config-ref="HTTP_Listener_config" path="/listAllFlights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="31416595-aa94-4255-bffb-9f59c542ec37" message="list all flights flow started"/>
+		<http:request method="GET" doc:name="Request" doc:id="9314378c-b73a-4ead-9334-56465423e155" config-ref="HTTP_Request_configuration" path="/united/flights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e7178bc0-d390-486a-bfdd-a5f7b524ed13" message="list all flights target system connected"/>
+	</flow>
+</mule>
