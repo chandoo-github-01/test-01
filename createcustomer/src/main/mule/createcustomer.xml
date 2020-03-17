@@ -10,5 +10,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="createcustomerFlow" doc:id="0f4d427d-a441-4c99-88db-fbfbdd8a7be8" >
 		<http:listener doc:name="Listener" doc:id="0f143106-25fc-4d94-97fd-754dda12330e" config-ref="HTTP_Listener_config" path="/createCustomer"/>
 		<set-payload value="Customer created.... (not really)" doc:name="Set Payload" doc:id="adee8ed5-ee6a-4764-8cb8-74628f4b5604" />
+		<logger level="INFO" doc:name="Logger" doc:id="4bfa6eb2-cd69-4e67-b484-185c52cdd5f6" message="create customer flow completed!!!!!"/>
 	</flow>
 </mule>
